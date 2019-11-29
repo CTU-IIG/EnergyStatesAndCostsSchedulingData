@@ -1,0 +1,30 @@
+{
+    "datasetNames": ["benedikt2020a_large_nosby", "benedikt2020a_large_twosby"],
+    "globalConfig": {
+        "randomSeed": 41,
+        "numWorkers": 0,
+        "timeLimit": "01:00:00"
+    },
+    "solvers": [
+        {
+            "id": "ILP-REF",
+            "solverName": "IlpRef",
+            "substractExtendedInstanceGenerationFromTimeLimit": false,
+            "specializedSolverConfig": {
+            }
+        },
+        {
+            "id": "ILP-SPACES",
+            "solverName": "IlpSpaces",
+            "substractExtendedInstanceGenerationFromTimeLimit": true,
+            "specializedSolverConfig": {
+                "forbidConsecutiveGaps": false,
+                "pruneByUpperBound": false,
+                "forceJobsOrdering": false,
+                "relaxedJobsOrdering": false,
+                "pruneByLinearRelaxation": false,
+                "sparsifyMatrix": false
+            }
+        }
+    ]
+}

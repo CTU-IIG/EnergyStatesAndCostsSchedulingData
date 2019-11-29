@@ -1,0 +1,40 @@
+{
+    "datasetNames": ["benedikt2020a_medium_nosby", "benedikt2020a_medium_twosby"],
+    "globalConfig": {
+        "randomSeed": 41,
+        "numWorkers": 0,
+        "timeLimit": "00:10:00"
+    },
+    "solvers": [
+        {
+            "id": "ILP-REF",
+            "solverName": "IlpRef",
+            "substractExtendedInstanceGenerationFromTimeLimit": false,
+            "specializedSolverConfig": {
+            }
+        },
+        {
+            "id": "ILP-SPACES",
+            "solverName": "IlpSpaces",
+            "substractExtendedInstanceGenerationFromTimeLimit": true,
+            "specializedSolverConfig": {
+                "forbidConsecutiveGaps": false,
+                "pruneByUpperBound": false,
+                "forceJobsOrdering": false,
+                "relaxedJobsOrdering": false,
+                "pruneByLinearRelaxation": false,
+                "sparsifyMatrix": false
+            }
+        },
+        {
+            "id": "CP-SPACES",
+            "solverName": "CpGeneral",
+            "substractExtendedInstanceGenerationFromTimeLimit": true,
+            "specializedSolverConfig": {
+                "jobInObjectiveModelling": "Element",
+                "gapsInObjectiveModelling": "Free",
+                "fillAllModelling": "SumLengths"
+            }
+        }
+    ]
+}
